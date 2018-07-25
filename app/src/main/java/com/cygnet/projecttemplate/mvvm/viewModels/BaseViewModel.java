@@ -14,6 +14,9 @@ public class BaseViewModel extends ViewModel implements BVM {
 
 
 
+
+
+
     @Override
     public ViewModel inIt(Context mContext, MvvmView mvpView) {
         return this;
