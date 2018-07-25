@@ -1,0 +1,70 @@
+
+repositories {
+    maven { url 'https://maven.fabric.io/public' }
+    maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
+}
+
+buildscript {
+    repositories {
+        maven { url 'https://maven.fabric.io/public' }
+        maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
+    }
+
+    dependencies {
+        classpath 'io.fabric.tools:gradle:1.+'
+    }
+}
+
+apply plugin: 'com.android.library'
+apply plugin: 'io.fabric'
+
+android {
+    compileSdkVersion appCompileSdkVersion
+    buildToolsVersion appBuildToolsVersion
+    publishNonDefault appPublicNonDefault
+    defaultPublishConfig appPublicConfig
+
+    defaultConfig {
+        minSdkVersion appMinSdkVersion
+        targetSdkVersion appTargetedSdkVersion
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = ["room.schemaLocation": "$projectDir/schemas".toString()]
+            }
+        }
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField 'String', 'DEFAULT_BASE_DOMAIN', '"http://live.demo.com/"'
+        }
+        debug {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField 'String', 'DEFAULT_BASE_DOMAIN', '"http://debug.demo.com/"'
+        }
+    }
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    api project(':framework')
+    def modelDependencies = rootProject.ext.modelDependencies
+    implementation(modelDependencies.crashlytics) {
+        transitive = true
+    }
+    implementation modelDependencies.pagging
+    implementation modelDependencies.room
+    annotationProcessor modelDependencies.roomCompiler
+    //Optional gradle, incase require un comment it
+    //    compile modelDependencies.gson
+}

@@ -1,0 +1,9 @@
+<resources>
+    <string name="btn_dialog_okay">Okay</string>
+    <string name="btn_dialog_cancel">Cancel</string>
+    <string name="app_name">ProjectTemplate</string>
+    <string name="image_picker_title">Choose Photo Option</string>
+    <string name="error_camera_not_available">Your device does not support camera.</string>
+    <string name="btn_dialog_retry">Retry</string>
+    <string name="loader">Loading...</string>
+</resources>

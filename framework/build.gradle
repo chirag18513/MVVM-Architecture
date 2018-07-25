@@ -1,0 +1,44 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion appCompileSdkVersion
+    buildToolsVersion appBuildToolsVersion
+    publishNonDefault appPublicNonDefault
+    defaultPublishConfig appPublicConfig
+    defaultConfig {
+        minSdkVersion appMinSdkVersion
+        targetSdkVersion appTargetedSdkVersion
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    def frameworkDependencies = rootProject.ext.framworkDependancies
+    implementation frameworkDependencies.appCompat
+    implementation frameworkDependencies.recyclerviewLibrary
+    implementation frameworkDependencies.imagepicker
+    api frameworkDependencies.design
+    api frameworkDependencies.retrofit
+    api frameworkDependencies.retrofitJacksonConverter
+    api frameworkDependencies.retrofitGsonConvertor
+    api frameworkDependencies.okhttpLogging
+    api frameworkDependencies.okhttpurlconnection
+    debugImplementation frameworkDependencies.debugLeakCanary
+    releaseImplementation frameworkDependencies.releaseLeakCanary
+    implementation frameworkDependencies.lifecycle
+    annotationProcessor frameworkDependencies.lifecycleCompiler
+}

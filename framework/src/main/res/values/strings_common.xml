@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--LABELS-->
+    <string name="lbl_cancel">Cancel</string>
+    <string name="lbl_save">Save</string>
+    <string name="lbl_ok">OK</string>
+    <string name="lbl_yes">Yes</string>
+    <string name="lbl_no">No</string>
+    <string name="lbl_install">Install</string>
+    <string name="lbl_continue">Continue</string>
+
+    <!--MESSAGES-->
+    <string name="message.progress.please_wait">Please wait...</string>
+
+    <!--Alerts-->
+    <string name="alert.progress.dont_close_the_app">Please do not close the app...</string>
+    <string name="alert.app.exit">Would you like to close application?</string>
+
+    <!--Errors-->
+    <string name="error_invalid_email_address">Please enter valid email address.</string>
+    <string name="error_invalid_password">Password should not be blank.</string>
+    <string name="error.network.no_internet">Internet connection is not found. Please try again.</string>
+
+
+    <!--<string name="error.network.connection_timeout">Connection time out. Please try again later.</string>-->
+    <string name="error.network.session_expire">Session expired. Please log in again.</string>
+    <string name="error.network.connection_error">Connection error. Please try again later.</string>
+    <!--<string name="error.network.process_request">There has been an error while processing your request. Please try again.</string>-->
+    <!--<string name="error.network.error_in_request">There has been an error while processing your request. Please try again.</string>-->
+
+    <!--Client side errors-->
+    <!-- 408 -->
+    <string name="error.network.connection_timeout">Connection time out. Please try again later.</string>
+    <!--401 or 407 -->
+    <string name="error.network.unauthorized">Login required to perform current request. Please login.</string>
+    <!--413 or 414-->
+    <string name="error.network.too_long_request">Request entry too long. Please consult your service provider.</string>
+    <!--For other client errors-->
+    <!--<string name="error.network.client_error">There has been an error while processing your request. Please try again or consult your service provider.</string>-->
+    <string name="error.network.client_error">Unknown error occurred.</string>
+    <!--For 504,598 and 599-->
+    <string name="error.network.server_timeout">Server is not responding. Please contact your service provider.</string>
+    <!--For server errors-->
+    <string name="error.network.server_errors">There has been a server error. Please try again or consult your service provider.</string>
+
+    <!--For app error like parsing error-->
+    <string name="error.network.app_error">There has been some error while processing your request. Please try again.</string>
+
+
+</resources>
