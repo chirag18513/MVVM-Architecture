@@ -12,11 +12,6 @@ import com.cygnet.framework.mvvm.views.MvvmView;
 
 public class BaseViewModel extends ViewModel implements BVM {
 
-
-
-
-
-
     @Override
     public ViewModel inIt(Context mContext, MvvmView mvpView) {
         return this;
